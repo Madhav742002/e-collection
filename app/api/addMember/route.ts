@@ -1,5 +1,5 @@
 import { db } from "@/configs/db";
-import { member } from "@/configs/schema";
+import { memberlist } from "@/configs/schema";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     }
 
     //insert data to database
-    await db.insert(member).values({ id, name, email, post });
+    await db.insert(memberlist).values({ id, name, email, post });
     return NextResponse.json({ message: "api- member is added sucessfully " });
   } catch (error) {
     console.log("Error insertion data :", error);

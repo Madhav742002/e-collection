@@ -1,5 +1,5 @@
 import { db } from "@/configs/db";  // No need for .js extension in Next.js imports
-import { userMessage } from "@/configs/schema";  // Adjust import path accordingly
+import { usermessage } from "@/configs/schema";  // Adjust import path accordingly
 import { NextResponse } from "next/server";  // Use Next.js' server response
 
 export async function POST(req: Request) {
@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     }
 
     // Insert data into the database using your schema
-    await db.insert(userMessage).values({ email, message });
+    await db.insert(usermessage).values({ email, message });
 
     return NextResponse.json({ message: "Message submitted successfully!" });
   } catch (error) {

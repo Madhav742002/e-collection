@@ -3,7 +3,7 @@ import React from 'react'
 const About = () => {
   <title>About Us - Eventify</title>
   return (
-    <div className="bg-gradient-to-r from-orange-500 to-yellow-600 min-h-screen py-10 px-6 md:px-16 lg:px-32 flex items-center justify-center">
+    <div className="bg-gradient-to-r from-sky-200 to-sky-600 min-h-screen py-10 px-6 md:px-16 lg:px-32 flex items-center justify-center">
       <div className="max-w-5xl bg-white p-10 shadow-2xl rounded-3xl text-center">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-6 uppercase tracking-wide">
           Welcome to Eventify

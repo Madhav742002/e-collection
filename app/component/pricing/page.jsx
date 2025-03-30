@@ -75,7 +75,7 @@ const Pricing = () => {
       description: "Event Management Subscription",
       handler: function (response) {
         alert("Payment Successful! Transaction ID: " + response.razorpay_payment_id);
-        window.location.href = "https://event-contribution-self.vercel.app/"; // Redirect after payment
+        window.location.href = "https://eventify-nine-ecru.vercel.app/"; // Redirect after payment
       },
       prefill: {
         name: "Your User",

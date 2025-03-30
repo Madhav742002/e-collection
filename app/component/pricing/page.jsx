@@ -1,9 +1,21 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 const Pricing = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    script.onload = () => console.log("Razorpay script loaded"); 
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script); // Cleanup script when component unmounts
+    };
+  }, []);
+
   const plans = [
     {
       name: "FREE",
@@ -15,7 +27,7 @@ const Pricing = () => {
         "Basic Analytics",
         "Email Support",
       ],
-      buttonText: "Try It",
+      buttonText: "Try Free",
       highlight: false,
     },
     {
@@ -56,14 +68,14 @@ const Pricing = () => {
     }
 
     const options = {
-      key: "rzp_test_H9TA8jf2lnmGkB",
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
       amount: amount * 100, // Convert to paisa
       currency: "INR",
       name: "Eventify",
       description: "Event Management Subscription",
       handler: function (response) {
         alert("Payment Successful! Transaction ID: " + response.razorpay_payment_id);
-        window.location.href = "https://event-contribution-self.vercel.app/"; // Redirect to your website
+        window.location.href = "https://event-contribution-self.vercel.app/"; // Redirect after payment
       },
       prefill: {
         name: "Your User",

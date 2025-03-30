@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";  // Use Next.js' server response
 
 export async function POST(req: Request) {
   try {
-    const { email, message } = await req.json();  // Parse JSON from the request
+    const { email, message, } = await req.json();  // Parse JSON from the request
 
     if (!email || !message) {
       return NextResponse.json({ error: "Email and message are required." }, { status: 400 });
